@@ -1,0 +1,86 @@
+.HomeLogin_main {
+  width: 1512px;
+  height: 822px;
+  background-color: rgba(245, 245, 245, 0.96);
+}
+
+.HomeLogin_log {
+  display: flex;
+  position: relative;
+  left: 167px;
+  top: 306px;
+  width: 350px;
+}
+
+.HomeLogin_border {
+  width: 400px;
+  height: 400px;
+  flex-shrink: 0;
+  border-radius: 30px;
+  background: #fff;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.HomeLogin_Location {
+  display: flex;
+  position: relative;
+  left: 832px;
+  top: 87px;
+}
+
+.HomeLogin_input {
+  width: 350px;
+  height: 50px;
+  flex-shrink: 0;
+  border-radius: 20px;
+  border: 3px solid #e0dede;
+  background: #fff;
+  margin-top: 30px;
+}
+
+.HomeLogin_content {
+  position: relative;
+  left: 22px;
+}
+
+.HomeLogin_login {
+  width: 358px;
+  height: 50px;
+  flex-shrink: 0;
+  border-radius: 20px;
+  background: #d2691e;
+  margin-top: 35px;
+  border-color: #d2691e;
+  color: aliceblue;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.HomeLogin_sigin {
+  width: 140px;
+  height: 50px;
+  flex-shrink: 0;
+  border-radius: 20px;
+  background: #ffd700;
+  margin-left: 125px;
+  border-color: #ffd700;
+  color: aliceblue;
+  font-size: 30px;
+  font-weight: bold;
+  padding: 5px;
+}
+
+.HomeLogin_pwfind {
+  display: flex;
+  width: 84px;
+  height: 17px;
+  flex-direction: column;
+  margin-left: 140px;
+  margin-top: 35px;
+  flex-shrink: 0;
+  color: #d2691e;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}

@@ -1,0 +1,53 @@
+.Signin_background {
+  width: 1512px;
+  height: 822px;
+  background-color: rgba(245, 245, 245, 0.96);
+}
+
+.Signin_title {
+  padding-top: 20px;
+  text-align: center;
+}
+
+.Signin_check {
+  text-align: center;
+}
+
+label {
+  margin-left: 10px;
+}
+.Signin_input {
+  text-align: center;
+}
+
+.Signin_id {
+  width: 332px;
+  height: 49px;
+  border-radius: 30px;
+  border: 3px solid #e0dede;
+  background: #fff;
+  margin-top: 35px;
+}
+
+.Signin_btn {
+  width: 80px;
+  height: 49px;
+  flex-shrink: 0;
+  border-radius: 20px;
+  background: #d2691e;
+  margin-top: 35px;
+  border-color: #d2691e;
+}
+
+.Signin_inbox {
+  top: 20px;
+  position: relative;
+  left: 460px;
+  width: 600px;
+  height: 762px;
+  flex-shrink: 0;
+  border-radius: 30px;
+  background: #fff;
+
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
