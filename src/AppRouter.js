@@ -5,6 +5,7 @@ import Project from "./Project/Project";
 import ProjectEm from "./Project/ProejctEm";
 import Budget from "./Project/Budget";
 import Post from "./Project/Post";
+import Postinfo from "./Project/Postinfo";
 
 
 function AppRouter() {
@@ -16,6 +17,7 @@ function AppRouter() {
         <Route path="/ProjectEM" element={<ProjectEm/>}/>
         <Route path="/Budget" element={<Budget/>}/>
         <Route path="/Post" element={<Post/>}/>
+        <Route path="/Postinfo" element={<Postinfo/>}/>
       </Routes>
       
     </Router>

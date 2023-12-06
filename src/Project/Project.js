@@ -4,13 +4,17 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 function Project() {
-  const [data, setData] = useState("");
+  const [data, setData] = useState({customer:{}});
 
   async function fetchContent() {
     try {
-      const response = await axios.get("http://localhost:3000/project/30");
+      const response = await axios.get("http://localhost:8080/project/30");
       console.log(response);
       setData(response.data); 
+
+      if(data.endDate == null){
+        <p>진행중</p>
+      }
     } catch {}
   }
 
@@ -33,20 +37,27 @@ function Project() {
               <circle cx="16.5" cy="16.5" r="16.5" fill="#D2691E" />
             </svg>
             <p className="project_name">{data.projectName}</p>
-            <p style={{ color: "gray" }}>아이디 값:{data.projectId}</p>
+            <p style={{ color: "gray" }}>#{data.projectId}</p>
           </div>
           <div className="preject_header2">
-            <p>착수 일자:{data.startData}</p>
-            <p>종료 일자:{data.endDate}</p>
-            <p>발주처 : {data.customer.name}</p>
+            <p>착수 일자: {data.startDate}</p>
+            <p>종료 일자: {data.endDate ? data.endDate : "진행중"}</p>
+            <p>발주처</p>
           </div>
           <hr />
           <div className="project_header3">
             <ul className="project_ul">
               <li className="project_li">ID</li>
               <li className="project_li">이름</li>
-              <li className="project_li">이메일</li>
+              <li className="project_li">전화번호</li>
             </ul>
+
+            <ul className="project_ul">
+              <li className="projectdata_li">{data.customer.customerId}</li>
+              <li className="projectdata_li">{data.customer.name}</li>
+              <li className="projectdata_li">{data.customer.phoneNumber}</li>
+            </ul>
+            
           </div>
         </div>
         <Link

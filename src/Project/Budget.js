@@ -1,11 +1,28 @@
 import "./Budget.css";
+import { useState,useEffect } from "react";
+import axios from "axios";
+
 
 function Budget() {
+
+  const [data,setData] = useState([]);
+
+  async function fetchContent() {
+    try {
+      const response = await axios.get("http://localhost:8080/management/budget?projectId=30");
+      console.log(response);
+      setData(response.data); 
+    } catch {}
+  }
+
+  useEffect(() => {
+    fetchContent(); 
+  }, []); 
   return (
     <body>
       <div>
         <p className="budget_title">예산 관리</p>
-        <div className="budget_box">
+        {data.map((datas) => (<div className="budget_box">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="33"
@@ -16,16 +33,17 @@ function Budget() {
             <path d="M33 0L17 16L0 33V0L33 0Z" fill="#D2691E" />
           </svg>
           <div className="budget_content">
-            {" "}
-            <p className="budget_id">프로젝트 아이디</p>
-            <div className="budget_cost"></div>
+            <p className="budget_id">프로젝트 아이디:{datas.managementId}</p>
+            <div className="budget_cost">{datas.content}</div>
             <div className="budget_total">
-              <p className="budget_assig">배정 예산:</p>
-              <p>사용 금액:</p>
+              <p className="budget_assig">배정 예산: {datas.allocatedBudget}원</p>
+              <p>사용 금액: {datas.spentAmount}원</p>
             </div>
           </div>
         </div>
-      </div>
+        ))}
+        </div>
+        
     </body>
   );
 }

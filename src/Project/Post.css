@@ -37,10 +37,36 @@ hr {
   list-style: none;
   margin: 0;
   padding: 0;
+  margin-top: 5px;
+  margin-bottom: 5px
 }
 
 .post_li {
   display: inline-block;
-  margin-right: 60px;
+  margin-right: 67px;
   margin-left: 30px;
+  margin-top: 5px;
+}
+
+
+.postid_li {
+  display: inline-block;
+  width:30px;
+  margin-left: 30px;
+}
+.posttitle_li {
+  display: inline-block;
+  width:150px;
+  margin-left: 40px;
+}
+.postem_li {
+  display: inline-block;
+  width: 135px;
+  margin-left: 30px;
+}
+.postcc_li {
+  display: inline-block;
+  width: 10px;
+  margin-left: 10px;
+
 }
