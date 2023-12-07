@@ -1,26 +1,30 @@
 import { useState, useEffect } from "react";
 import "./Project.css";
 import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 
 function Project() {
-  const [data, setData] = useState({customer:{}});
+  const [data, setData] = useState({ customer: {} });
+  const { projectId } = useParams();
 
   async function fetchContent() {
     try {
-      const response = await axios.get("http://localhost:8080/project/30");
+      const response = await axios.get(
+        `http://localhost:8080/project/${projectId}`
+      );
       console.log(response);
-      setData(response.data); 
+      setData(response.data);
 
-      if(data.endDate == null){
-        <p>진행중</p>
+      if (data.endDate == null) {
+        <p>진행중</p>;
       }
     } catch {}
   }
 
   useEffect(() => {
-    fetchContent(); 
-  }, []); 
+    fetchContent();
+  }, []);
 
   return (
     <body>
@@ -57,11 +61,10 @@ function Project() {
               <li className="projectdata_li">{data.customer.name}</li>
               <li className="projectdata_li">{data.customer.phoneNumber}</li>
             </ul>
-            
           </div>
         </div>
         <Link
-          to="/ProjectEM"
+          to={`/ProjectEM/${data.projectId}`}
           className="project_part2"
           style={{ textDecoration: "none" }}
         >
@@ -75,7 +78,7 @@ function Project() {
             변경 관리
           </Link>
           <Link
-            to="/Budget"
+            to = {`/Budget/${data.projectId}`}
             className="project_smallbox"
             style={{ textDecoration: "none" }}
           >
@@ -83,7 +86,7 @@ function Project() {
           </Link>
         </div>
         <Link
-          to="/Post"
+          to={`/Post/${data.projectId}`}
           className="project_part4"
           style={{ textDecoration: "none" }}
         >

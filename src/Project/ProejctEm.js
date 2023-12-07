@@ -1,22 +1,25 @@
 import "./ProjectEm.css";
-import { useState,useEffect} from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 
 function ProjectEm() {
-
-  const [data,setData] = useState([]);
+  const [data, setData] = useState([]);
+  const { projectId } = useParams();
 
   async function fetchContent() {
     try {
-      const response = await axios.get("http://localhost:8080/project-employees?projectId=3");
+      const response = await axios.get(
+        `http://localhost:8080/project-employees?${projectId}`
+      );
       console.log(response);
-      setData(response.data); 
+      setData(response.data);
     } catch {}
   }
 
   useEffect(() => {
-    fetchContent(); 
-  }, []); 
+    fetchContent();
+  }, []);
 
   return (
     <body>
@@ -31,18 +34,13 @@ function ProjectEm() {
         </ul>
         {data.map((datas) => (
           <ul className="projectEmdata_ul">
-          <li className="projectidEmdata_li">{datas.employeeId}</li>
-          <li className="projectnameEmdata_li">{datas.name}</li>
-          <li className="projectseEmdata_li">{datas.socialSecurityNumber}</li>
-          <li className="projectfinalEmdata_li">{datas.education}</li>
-          <div className="project_line"></div>
-        </ul>
-        
+            <li className="projectidEmdata_li">{datas.employeeId}</li>
+            <li className="projectnameEmdata_li">{datas.name}</li>
+            <li className="projectseEmdata_li">{datas.socialSecurityNumber}</li>
+            <li className="projectfinalEmdata_li">{datas.education}</li>
+            <div className="project_line"></div>
+          </ul>
         ))}
-        
-    
-        
-        
       </div>
     </body>
   );

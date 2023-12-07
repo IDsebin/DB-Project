@@ -6,20 +6,20 @@ import ProjectEm from "./Project/ProejctEm";
 import Budget from "./Project/Budget";
 import Post from "./Project/Post";
 import Postinfo from "./Project/Postinfo";
-
+import MainPage from "./Project/MainPage";
 
 function AppRouter() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Project />}></Route>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/Project/:projectId" element={<Project />}></Route>
         <Route path="/signIn" element={<Signin />} />
-        <Route path="/ProjectEM" element={<ProjectEm/>}/>
-        <Route path="/Budget" element={<Budget/>}/>
-        <Route path="/Post" element={<Post/>}/>
-        <Route path="/Postinfo/:postId" element={<Postinfo/>}/>
+        <Route path="/ProjectEM/:projectId" element={<ProjectEm />} />
+        <Route path="/Budget/:projectId" element={<Budget />} />
+        <Route path="/Post/:projectId" element={<Post />} />
+        <Route path="/Postinfo/:postId" element={<Postinfo />} />
       </Routes>
-      
     </Router>
   );
 }
