@@ -1,22 +1,26 @@
-import React from "react"
-import "./Postinfo.css"
-import { useState,useEffect } from "react";
+import React from "react";
+import { useParams } from "react-router-dom";
+import "./Postinfo.css";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
+function Postinfo() {
+  const [data, setData] = useState([]);
+  const [comments, setComments] = useState([]);
+  const { postId } = useParams(); 
 
-function Postinfo () {
-    const [data,setData] = useState([]);
-    const [comments, setComments] = useState([]);
+  console.log(postId);
 
-    async function fetchContent() {
-      try {
-        const response = await axios.get("http://localhost:8080/post/1");
-        console.log(response);
-        console.log(response.data.comments);
-        setData(response.data); 
-        setComments(response.data.comments);
-      } catch {}
+  async function fetchContent() {
+    try {
+      const response = await axios.get(`http://localhost:8080/post/${postId}`);
+      console.log(response);
+      setData(response.data);
+      setComments(response.data.comments);
+    } catch (error) {
+      console.error("데이터를 불러오는 데 실패했습니다.", error);
     }
+  }
   
     useEffect(() => {
       fetchContent(); 

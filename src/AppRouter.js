@@ -17,7 +17,7 @@ function AppRouter() {
         <Route path="/ProjectEM" element={<ProjectEm/>}/>
         <Route path="/Budget" element={<Budget/>}/>
         <Route path="/Post" element={<Post/>}/>
-        <Route path="/Postinfo" element={<Postinfo/>}/>
+        <Route path="/Postinfo/:postId" element={<Postinfo/>}/>
       </Routes>
       
     </Router>

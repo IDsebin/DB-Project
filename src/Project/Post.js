@@ -34,7 +34,7 @@ function Post() {
         <br/>
         {data.map((datas) => (
          <ul className="post_ul">
-         <Link to="/Postinfo">
+         <Link to={`/Postinfo/${datas.postId}`}>
           <li className="postid_li">{datas.postId}</li>
          <li className="posttitle_li">{datas.title}</li>
          <li className="postem_li">{datas.employeeId}</li>
